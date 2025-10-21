@@ -1,0 +1,63 @@
+[root@localhost log]# adduser Sarah
+[root@localhost log]# 
+[root@localhost log]# 
+[root@localhost log]# adduser Mike
+[root@localhost log]# 
+[root@localhost log]# 
+[root@localhost log]# passwd Sarah
+Changing password for user Sarah.
+New password: 
+BAD PASSWORD: The password fails the dictionary check - it is based on a dictionary word
+Retype new password: 
+Sorry, passwords do not match.
+New password: 
+BAD PASSWORD: The password contains the user name in some form
+Retype new password: 
+passwd: all authentication tokens updated successfully.
+[root@localhost log]# 
+[root@localhost log]# passwd Mike
+Changing password for user Mike.
+New password: 
+BAD PASSWORD: The password contains the user name in some form
+Retype new password: 
+passwd: all authentication tokens updated successfully.
+[root@localhost log]# 
+[root@localhost log]# 
+[root@localhost log]# mkdir -p /home/Sarah/workspace
+[root@localhost log]# mkdir -p /home/Mike/workspace
+[root@localhost log]# chown Sarah:Sarah /home/Sarah/workspace
+[root@localhost log]# chmod 700 /home/Sarah/workspace
+[root@localhost log]# chown Mike:Mike /home/Mike/workspace
+[root@localhost log]# chmod 700 /home/Mike/workspace
+[root@localhost log]# chage -M 30 Sarah
+[root@localhost log]# chage -M 30 Mike
+[root@localhost log]# sudo chage -l Sarah
+Last password change					: Oct 20, 2025
+Password expires					: Nov 19, 2025
+Password inactive					: never
+Account expires						: never
+Minimum number of days between password change		: 0
+Maximum number of days between password change		: 30
+Number of days of warning before password expires	: 7
+
+
+[Sarah@localhost ~]$ cd /home/Sarah/workspace 
+[Sarah@localhost workspace]$ cd ..
+[Sarah@localhost ~]$ 
+[Sarah@localhost ~]$ ls -l
+total 0
+drwx------. 2 Sarah Sarah 6 Oct 20 05:49 workspace
+[Sarah@localhost ~]$ 
+[Sarah@localhost ~]$ 
+[Sarah@localhost ~]$ cd ..
+[Sarah@localhost home]$ 
+[Sarah@localhost home]$ 
+[Sarah@localhost home]$ ls -l
+total 0
+drwx------. 3 Mike    Mike     79 Oct 20 05:49 Mike
+drwx------. 3 Sarah   Sarah    79 Oct 20 05:49 Sarah
+
+[Sarah@localhost home]$ cd Mike/
+-bash: cd: Mike/: Permission denied
+[Sarah@localhost home]$ 
+
