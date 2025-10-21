@@ -1,0 +1,72 @@
+[root@centos backups]# ls -l
+total 36
+-rw-r--rwx. 1 Sarah Sarah 13411 Oct 20 15:29 apache_backup_2025-10-20.tar.gz
+-rw-r--rwx. 1 Sarah Sarah   125 Oct 21 15:25 backup_log.txt
+-rw-r--rwx. 1 Sarah Sarah  1524 Oct 21 15:25 backup_verification.txt
+-rw-r--rwx. 1 Mike  Mike  10392 Oct 21 15:25 nginx_backup_2025-10-21.tar.gz
+[root@centos backups]# date
+Tue Oct 21 03:26:17 PM MDT 2025
+[root@centos backups]# cat backup_log.txt 
+Backup completed for Apache on Mon Oct 20 03:29:28 PM MDT 2025
+Backup completed for Nginx on Tue Oct 21 03:25:59 PM MDT 2025
+[root@centos backups]# cat backup_verification.txt 
+etc/httpd/
+etc/httpd/conf.d/
+etc/httpd/conf.d/README
+etc/httpd/conf.d/autoindex.conf
+etc/httpd/conf.d/userdir.conf
+etc/httpd/conf.d/welcome.conf
+etc/httpd/conf/
+etc/httpd/conf/httpd.conf
+etc/httpd/conf/magic
+etc/httpd/conf.modules.d/
+etc/httpd/conf.modules.d/00-base.conf
+etc/httpd/conf.modules.d/00-dav.conf
+etc/httpd/conf.modules.d/00-mpm.conf
+etc/httpd/conf.modules.d/00-optional.conf
+etc/httpd/conf.modules.d/00-proxy.conf
+etc/httpd/conf.modules.d/01-cgi.conf
+etc/httpd/conf.modules.d/README
+etc/httpd/conf.modules.d/00-lua.conf
+etc/httpd/conf.modules.d/10-h2.conf
+etc/httpd/conf.modules.d/10-proxy_h2.conf
+etc/httpd/conf.modules.d/00-brotli.conf
+etc/httpd/conf.modules.d/00-systemd.conf
+etc/httpd/logs
+etc/httpd/modules
+etc/httpd/run
+etc/httpd/state
+var/www/html/
+etc/nginx/
+etc/nginx/conf.d/
+etc/nginx/default.d/
+etc/nginx/fastcgi.conf
+etc/nginx/fastcgi.conf.default
+etc/nginx/fastcgi_params
+etc/nginx/fastcgi_params.default
+etc/nginx/koi-utf
+etc/nginx/koi-win
+etc/nginx/mime.types
+etc/nginx/mime.types.default
+etc/nginx/nginx.conf
+etc/nginx/nginx.conf.default
+etc/nginx/scgi_params
+etc/nginx/scgi_params.default
+etc/nginx/uwsgi_params
+etc/nginx/uwsgi_params.default
+etc/nginx/win-utf
+usr/share/nginx/html/
+usr/share/nginx/html/icons/
+usr/share/nginx/html/icons/poweredby.png
+usr/share/nginx/html/404.html
+usr/share/nginx/html/50x.html
+usr/share/nginx/html/nginx-logo.png
+usr/share/nginx/html/poweredby.png
+usr/share/nginx/html/system_noindex_logo.png
+usr/share/nginx/html/index.html_1
+usr/share/nginx/html/index.html
+[root@centos backups]# su - Mike
+Last login: Tue Oct 21 15:20:22 MDT 2025 on pts/0
+[Mike@centos ~]$ crontab -l
+0 0 * * 2 /home/Mike/nginx_backup.sh
+
